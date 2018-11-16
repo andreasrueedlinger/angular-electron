@@ -1,8 +1,10 @@
-import { app, BrowserWindow, screen } from 'electron';
+
+import { BrowserWindow, app, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
+let win;
+let serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
