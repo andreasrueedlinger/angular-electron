@@ -3,12 +3,11 @@ import { BrowserWindow, app, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win;
-let serve;
+let win: BrowserWindow = null;
 const args = process.argv.slice(1);
-serve = args.some(val => val === '--serve');
+const serve = args.some(val => val === '--serve');
 
-function createWindow() {
+function createWindow(): BrowserWindow {
 
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
@@ -18,7 +17,11 @@ function createWindow() {
     x: 0,
     y: 0,
     width: size.width,
-    height: size.height
+    height: size.height,
+    webPreferences: {
+      nodeIntegration: true,
+      allowRunningInsecureContent: (serve) ? true : false
+    }
   });
 
   if (serve) {
@@ -34,7 +37,9 @@ function createWindow() {
     }));
   }
 
-  win.webContents.openDevTools();
+  if (serve) {
+    win.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -44,9 +49,12 @@ function createWindow() {
     win = null;
   });
 
+  return win;
 }
 
 try {
+
+  app.allowRendererProcessReuse = true;
 
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
