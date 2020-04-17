@@ -182,32 +182,32 @@
     "strict-type-predicates": true,
     /* codelyzer rules */
     "angular-whitespace": [true, "check-interpolation", "check-pipe", "check-semicolon"],
-    "banana-in-box": true,
-    "contextual-life-cycle": true,
+    "template-banana-in-box": true,
+    "contextual-lifecycle": true,
     "component-class-suffix": true,
     "component-selector": {
       "options": ["element", "app", "kebab-case"]
     },
-    "decorator-not-allowed": true,
+    "contextual-decorator": true,
     "directive-class-suffix": true,
     "directive-selector": {
       "options": ["attribute", "app", "camelCase"]
     },
     "import-destructuring-spacing": true,
-    "no-attribute-parameter-decorator": true,
+    "no-attribute-decorator": true,
     "no-input-rename": true,
-    "no-output-named-after-standard-event": true,
+    "no-output-native": true,
     "no-output-on-prefix": true,
     "no-output-rename": true,
     "no-unused-css": false,
     "pipe-naming": ["camelCase", "app"],
-    "templates-no-negated-async": true,
-    "use-host-property-decorator": true,
-    "use-input-property-decorator": true,
-    "use-life-cycle-interface": true,
-    "use-output-property-decorator": true,
+    "template-no-negated-async": true,
+    "no-host-metadata-property": true,
+    "no-inputs-metadata-property": true,
+    "use-lifecycle-interface": true,
+    "no-outputs-metadata-property": true,
     "use-pipe-decorator": true,
     "use-pipe-transform-interface": true,
-    "use-view-encapsulation": true
+    "use-component-view-encapsulation": true
   }
 }
